@@ -11,9 +11,9 @@ public class KitDisplay extends JavaPlugin {
     private KitUtils kitUtils;
     private transient IEssentials ess = null;
 
-
     public void onEnable() {
         this.getServer().getPluginManager().registerEvents(new SignListener(this), this);
+        this.getServer().getPluginManager().registerEvents(new KitInventory(this), this);
         this.saveDefaultConfig();
         hookEss();
 
