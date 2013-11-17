@@ -1,0 +1,10 @@
+name: KitDisplay
+main: io.snw.kitdisplay.KitDisplay
+version: maven-version-number
+description: Tutorial plugin
+author: hawkfalcon
+website: snw.io
+depend: [Essentials]
+permissions:
+    kitdisplay.use:
+        default: true
