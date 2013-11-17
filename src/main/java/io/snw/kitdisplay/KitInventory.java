@@ -1,8 +1,6 @@
 package io.snw.kitdisplay;
 
-import com.earth2me.essentials.ISettings;
 import com.earth2me.essentials.Kit;
-import com.earth2me.essentials.User;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -45,14 +43,14 @@ public class KitInventory {
         }
             Inventory inventory = Bukkit.createInventory(player, items.size() + (9 - (items.size() % 9)), kit);
         int slot = 0;
-        for (String item : items) {
-            ItemStack i = null;
-            try {
-                i = plugin.getItemDb().get(item);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            inventory.setItem(slot, i);
+        List<ItemStack> itemstacks = null;
+        try {
+            plugin.getKitUtils().getExpandedItems(plugin.getIess(), items);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        for (ItemStack item : itemstacks) {
+            inventory.setItem(slot, item);
         }
         player.openInventory(inventory);
     }

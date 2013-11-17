@@ -30,7 +30,7 @@ public class SignListener implements Listener {
                 String signname = plugin.getConfig().getString("names.sign");
                 if (!sign.getLine(0).contains(signname) || !player.hasPermission("kitdisplay.use") || sign.getLine(1) == null)
                     return;
-                plugin.getKitInventory().createInventory(player, sign.getLine(1));
+                plugin.getKitInventory().createInventory(player, sign.getLine(1).toLowerCase());
             }
         }
     }
