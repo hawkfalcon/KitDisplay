@@ -8,3 +8,7 @@ depend: [Essentials]
 permissions:
     kitdisplay.use:
         default: true
+commands:
+    kitdisplay:
+        default: true
+        description: See kits
