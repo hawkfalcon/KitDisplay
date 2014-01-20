@@ -31,7 +31,7 @@ public class KitInventory implements Listener {
             return;
         }
         String prefix = plugin.getConfig().getString("names.prefix", "&7[Kit]");
-        Inventory inventory = Bukkit.createInventory(player, (int) Math.ceil(items.size() / 9) * 9, tACC(prefix + "" + getInvName(kit)));
+        Inventory inventory = Bukkit.createInventory(player, ((items.size() / 9) + ((items.size() % 9 == 0) ? 0 : 1)) * 9, tACC(prefix + "" + getInvName(kit)));
         int slot = 0;
         List<ItemStack> itemstacks = null;
         try {
