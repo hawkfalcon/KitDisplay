@@ -25,7 +25,7 @@ public class SignListener implements Listener {
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (block.getType() == Material.SIGN_POST || block.getType() == Material.WALL_SIGN) {
                 Sign sign = (Sign) block.getState();
-                String signname = ChatColor.stripColor(tACC(plugin.getConfig().getString("names.prefix", "&7[KitDisplay]")));
+                String signname = ChatColor.stripColor(tACC(plugin.getConfig().getString("names.sign", "&7[KitDisplay]")));
                 if (!sign.getLine(0).contains(ChatColor.stripColor(signname)) || !player.hasPermission("kitdisplay.use") || sign.getLine(1) == null)
                     return;
                 String kit = sign.getLine(1).toLowerCase();

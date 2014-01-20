@@ -30,7 +30,7 @@ public class KitInventory implements Listener {
         if (items == null) {
             return;
         }
-        String prefix = plugin.getConfig().getString("names.prefix", "&7[KitDisplay]");
+        String prefix = plugin.getConfig().getString("names.prefix", "&7[Kit]");
         Inventory inventory = Bukkit.createInventory(player, items.size() + (9 - (items.size() % 9)), tACC(prefix + "" + getInvName(kit)));
         int slot = 0;
         List<ItemStack> itemstacks = null;
@@ -54,7 +54,7 @@ public class KitInventory implements Listener {
     }
 
     private String getInvName(String kit) {
-        return plugin.getConfig().getString("names.inventory", "&7Currently viewing {kit}").replace("{kit}", kit.substring(0, 1).toUpperCase() + kit.substring(1));
+        return plugin.getConfig().getString("names.inventory", "&6 {kit}").replace("{kit}", kit.substring(0, 1).toUpperCase() + kit.substring(1));
     }
 
     public String tACC(String string) {
