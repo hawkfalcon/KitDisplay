@@ -30,8 +30,6 @@ public class KitInventory implements Listener {
         if (items == null) {
             return;
         }
-        String prefix = plugin.getConfig().getString("names.prefix", "&7[Kit]");
-        Inventory inventory = Bukkit.createInventory(player, ((items.size() / 9) + ((items.size() % 9 == 0) ? 0 : 1)) * 9, tACC(prefix + "" + getInvName(kit)));
         int slot = 0;
         List<ItemStack> itemstacks = null;
         try {
@@ -39,6 +37,12 @@ public class KitInventory implements Listener {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if (itemstacks == null) {
+            return;
+        }
+        String prefix = plugin.getConfig().getString("names.prefix", "&7[Kit]");
+        Inventory inventory = Bukkit.createInventory(player, ((itemstacks.size() / 9) + ((itemstacks.size() % 9 == 0) ? 0 : 1)) * 9, tACC(prefix + "" + getInvName(kit)));
+
         for (ItemStack item : itemstacks) {
             inventory.setItem(slot, item);
             slot++;
